@@ -630,7 +630,7 @@ StatusWith<bool> WiredTigerIndex::_checkDups(OperationContext* opCtx,
     if (!rid) {
         return false;
     } else if (*rid == _decodeRecordIdAtEnd(keyString.getBuffer(), keyString.getSize())) {
-        return true;
+        return false;
     }
 
     boost::optional<RecordId> foundRecordId = boost::none;
